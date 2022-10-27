@@ -13,21 +13,15 @@
 NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar
-ARFLAGS = rc
 SRCS = ft_printf.c ft_functions.c
-OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-		$(AR) $(ARFLAGS) $(NAME) $(OBJS)
-$(OBJS) :
-		$(CC) $(CFLAGS) -c $(SRCS)
+$(NAME) :
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 clean :
-		rm -rf $(OBJS)
+	rm -rf $(NAME)
 
 fclean : clean
-		rm -rf $(NAME)
 
 re : fclean all
